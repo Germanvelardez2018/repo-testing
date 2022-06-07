@@ -11,6 +11,8 @@ char* GlobalOrderError;
 extern void setUp(void);
 extern void tearDown(void);
 extern void test_LedsOffAfterCreate(void);
+extern void test_TurnOnLed(void);
+extern void test_TurnOffLed(void);
 
 
 /*=======Mock Management=====*/
@@ -82,6 +84,8 @@ int main(void)
 {
   UnityBegin("test_leds.c");
   run_test(test_LedsOffAfterCreate, "test_LedsOffAfterCreate", 22);
+  run_test(test_TurnOnLed, "test_TurnOnLed", 31);
+  run_test(test_TurnOffLed, "test_TurnOffLed", 40);
 
   return UnityEnd();
 }

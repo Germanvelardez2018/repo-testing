@@ -7,12 +7,20 @@
   :line: 22
   :message: ''
   :unity_test_time: 0
+- :test: test_TurnOnLed
+  :line: 31
+  :message: ''
+  :unity_test_time: 0
+- :test: test_TurnOffLed
+  :line: 40
+  :message: ''
+  :unity_test_time: 0
 :failures: []
 :ignores: []
 :counts:
-  :total: 1
-  :passed: 1
+  :total: 3
+  :passed: 3
   :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.0007834170000933227
+:time: 0.0010132350007552304

@@ -26,3 +26,26 @@ void test_LedsOffAfterCreate(void){
 
     TEST_ASSERT_EQUAL_HEX16(0x0000,leds_port);
 }
+
+
+void test_TurnOnLed(void){
+    uint16_t leds_port;
+    Leds_init(&leds_port);
+    Led_turn_on(5);
+
+    TEST_ASSERT_EQUAL_HEX16((1 << 5), leds_port);
+}
+
+
+void test_TurnOffLed(void){
+
+    uint16_t leds_port;
+    Leds_init(&leds_port);
+    Led_turn_on(5);
+    Led_turn_off(5);
+
+    TEST_ASSERT_EQUAL_HEX16((0), leds_port);
+
+}
+
+

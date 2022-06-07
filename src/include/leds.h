@@ -27,5 +27,22 @@
  */
 void Leds_init(uint16_t* port);
 
+/**
+ * @brief Encender un led
+ * 
+ * @param led_position posicion del led a encender
+ * @return ** void 
+ */
+void Led_turn_on(int led_position);
+
+
+/**
+ * @brief Apagar un led
+ * 
+ * @param led_position posicion del led que quiero apagar
+ * @return ** void 
+ */
+void Led_turn_off(int led_position);
+
 
 #endif
