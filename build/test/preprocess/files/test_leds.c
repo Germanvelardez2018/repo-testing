@@ -8,18 +8,16 @@ void test_LedsOffAfterCreate(void){
 
 
 
-    uint16_t leds_port ;
+    uint16_t leds_port = 1;
 
     Leds_init(&leds_port);
 
 
 
-    UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((0x000)), (UNITY_INT)(UNITY_INT16)((leds_port)), (
+    UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((0x0000)), (UNITY_INT)(UNITY_INT16)((leds_port)), (
 
    ((void *)0)
 
    ), (UNITY_UINT)(27), UNITY_DISPLAY_STYLE_HEX16);
-
-    UnityFail( (("comenzamos")), (UNITY_UINT)(28));
 
 }

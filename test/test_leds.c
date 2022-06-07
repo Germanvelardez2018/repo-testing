@@ -21,9 +21,8 @@
 
 void test_LedsOffAfterCreate(void){
  
-    uint16_t leds_port ;
+    uint16_t leds_port  = 1;
     Leds_init(&leds_port);
 
-    TEST_ASSERT_EQUAL_HEX16(0x000,leds_port);
-    TEST_FAIL_MESSAGE("comenzamos");
+    TEST_ASSERT_EQUAL_HEX16(0x0000,leds_port);
 }
