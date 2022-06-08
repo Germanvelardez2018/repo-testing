@@ -19,25 +19,25 @@
 #include "unity.h"
 #include "leds.h"
 
-#include "mock_errors.h"
+//#include "mock_errors.h" No necesito el mock porque uso inyeccion de dependencias
 
 
 static  uint16_t leds_port;
 static gravedad_t status;
 
 void  log_errors(gravedad_t gravedad, const char * funcion, int linea, const char * mensaje, ...){
+    
     status = gravedad;
 }
 
 void  setUp(void){
-   
+    
     Leds_init(&leds_port,log_errors);
- 
 }
 
 
-void tearDown(void){
-  status == 0xFF;
+void tearDown(void){ 
+   status == 0xFF;
 }
 
 
@@ -65,6 +65,7 @@ void test_TurnOffLed(void){
 
 
 void test_TurnOnManyLeds(void){
+    
     Led_turn_on(5);
     Led_turn_on(7);
     Led_turn_off(7);
@@ -84,4 +85,12 @@ void test_TurnOnLedOutRange(void){
      Led_turn_on(17); 
      TEST_ASSERT_EQUAL_HEX16(ALERTA,status);   //Alerta tiene valor 1 y status que es nivel de alerta del sistema se 
                                                //carga con valor Alerta cuando sucede error en funcion led
+}
+
+
+void test_CheckLedOn(void){
+    Led_turn_on(5);
+    int check = LED_OFF;
+    check = Led_check_on(5);
+    TEST_ASSERT_EQUAL(LED_ON,check);
 }

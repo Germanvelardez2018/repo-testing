@@ -20,15 +20,19 @@
   :message: ''
   :unity_test_time: 0
 - :test: test_TurnOnLedOutRange
-  :line: 79
+  :line: 80
+  :message: ''
+  :unity_test_time: 0
+- :test: test_CheckLedOn
+  :line: 91
   :message: ''
   :unity_test_time: 0
 :failures: []
 :ignores: []
 :counts:
-  :total: 5
-  :passed: 5
+  :total: 6
+  :passed: 6
   :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.000736763000531937
+:time: 0.0013571270028478466

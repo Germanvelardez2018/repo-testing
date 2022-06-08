@@ -35,4 +35,13 @@ void Leds_turn_on(uint16_t mask){
     (*__port_address) |= mask;
 
 }
+
+
+
+int Led_check_on(int led_position){
+    
+    return  ((*__port_address) || ( 1 << LED_OFFSET(led_position)) )? 1: 0;
+    
+}
+
  

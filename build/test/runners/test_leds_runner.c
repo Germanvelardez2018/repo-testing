@@ -2,8 +2,6 @@
 
 /*=======Automagically Detected Files To Include=====*/
 #include "unity.h"
-#include "cmock.h"
-#include "mock_errors.h"
 
 int GlobalExpectCount;
 int GlobalVerifyOrder;
@@ -17,6 +15,7 @@ extern void test_TurnOnLed(void);
 extern void test_TurnOffLed(void);
 extern void test_TurnOnManyLeds(void);
 extern void test_TurnOnLedOutRange(void);
+extern void test_CheckLedOn(void);
 
 
 /*=======Mock Management=====*/
@@ -25,15 +24,12 @@ static void CMock_Init(void)
   GlobalExpectCount = 0;
   GlobalVerifyOrder = 0;
   GlobalOrderError = NULL;
-  mock_errors_Init();
 }
 static void CMock_Verify(void)
 {
-  mock_errors_Verify();
 }
 static void CMock_Destroy(void)
 {
-  mock_errors_Destroy();
 }
 
 /*=======Test Reset Options=====*/
@@ -88,8 +84,8 @@ int main(void)
   run_test(test_TurnOnLed, "test_TurnOnLed", 52);
   run_test(test_TurnOffLed, "test_TurnOffLed", 59);
   run_test(test_TurnOnManyLeds, "test_TurnOnManyLeds", 67);
-  run_test(test_TurnOnLedOutRange, "test_TurnOnLedOutRange", 79);
+  run_test(test_TurnOnLedOutRange, "test_TurnOnLedOutRange", 80);
+  run_test(test_CheckLedOn, "test_CheckLedOn", 91);
 
-  CMock_Guts_MemFreeFinal();
   return UnityEnd();
 }

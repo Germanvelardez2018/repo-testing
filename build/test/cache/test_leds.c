@@ -1,6 +1,7 @@
-#include "build/test/mocks/mock_errors.h"
 #include "src/include/leds.h"
-#include "/var/lib/gems/3.0.0/gems/ceedling-0.31.1/vendor/unity/src/unity.h"
+#include "/var/lib/gems/2.7.0/gems/ceedling-0.31.1/vendor/unity/src/unity.h"
+
+
 
 
 
@@ -15,6 +16,8 @@ static gravedad_t status;
 
 void log_errors(gravedad_t gravedad, const char * funcion, int linea, const char * mensaje, ...){
 
+
+
     status = gravedad;
 
 }
@@ -27,8 +30,6 @@ void setUp(void){
 
     Leds_init(&leds_port,log_errors);
 
-
-
 }
 
 
@@ -37,7 +38,7 @@ void setUp(void){
 
 void tearDown(void){
 
-  status == 0xFF;
+   status == 0xFF;
 
 }
 
@@ -105,6 +106,8 @@ void test_TurnOffLed(void){
 
 void test_TurnOnManyLeds(void){
 
+
+
     Led_turn_on(5);
 
     Led_turn_on(7);
@@ -123,7 +126,7 @@ void test_TurnOnManyLeds(void){
 
    ((void *)0)
 
-   ), (UNITY_UINT)(75), UNITY_DISPLAY_STYLE_HEX16);
+   ), (UNITY_UINT)(76), UNITY_DISPLAY_STYLE_HEX16);
 
 }
 
@@ -147,6 +150,28 @@ void test_TurnOnLedOutRange(void){
 
     ((void *)0)
 
-    ), (UNITY_UINT)(85), UNITY_DISPLAY_STYLE_HEX16);
+    ), (UNITY_UINT)(86), UNITY_DISPLAY_STYLE_HEX16);
+
+
+
+}
+
+
+
+
+
+void test_CheckLedOn(void){
+
+    Led_turn_on(5);
+
+    int check = 0;
+
+    check = Led_check_on(5);
+
+    UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((check)), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(95), UNITY_DISPLAY_STYLE_INT);
 
 }

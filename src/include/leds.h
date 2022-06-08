@@ -42,7 +42,8 @@ extern "C" {
 #define OFFSET                  1
 #define LED_OFFSET(POS)     (POS -OFFSET)
 #define ALERT_MSG_INVALID_PARAM             "Parametro invalido"
-
+#define LED_ON                          1
+#define LED_OFF                         0
 
 
 /**
@@ -78,6 +79,17 @@ void Led_turn_off(int led_position);
  * @return ** void 
  */
 void Leds_turn_on(uint16_t mask);
+
+
+/**
+ * @brief Checkeo si el led indicado esta prendido. Retorno 1 Si es Verdadero y 0 si es Falso.
+ * 
+ * @param led_position 
+ * @return ** int 
+ */
+int Led_check_on(int led_position);
+
+
 
 /* === Ciere de documentacion ================================================================== */
 #ifdef __cplusplus
