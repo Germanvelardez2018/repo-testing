@@ -1,3 +1,5 @@
 ---
+build/test/mocks/mock_errors.c:
+- TEST
 src/leds.c:
 - TEST

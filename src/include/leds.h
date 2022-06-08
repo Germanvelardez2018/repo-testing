@@ -1,21 +1,47 @@
-/**
- * @file leds.h
- * @author your name (you@domain.com)
- * @brief 
- * @version 0.1
- * @date 2022-06-07
- * 
- * @copyright Copyright (c) 2022
- * 
- */
+
+/**************************************************************************************************
+ ** (c) Copyright 2012: GERMAN VELARDEZ <germanvelardez16@gmail.com>
+ ** ALL RIGHTS RESERVED, DON'T USE OR PUBLISH THIS FILE WITHOUT AUTORIZATION
+ *************************************************************************************************/
+
+#ifndef LEDS_H   /*! @cond    */
+#define LEDS_H   /*! @endcond */
 
 
 
+/** @file leds.h
+ ** @brief Declaraciones de la libreria para el manejo de un puerto de leds
+ **
+ ** Libreria para el registro del los errores del sistema.
+ **
+ **| REV | YYYY.MM.DD | Autor           | Descripción de los cambios                              |
+ **|-----|------------|-----------------|---------------------------------------------------------|
+ **|   1 | 2022.06.07 | German Velardez | Version inicial del driver para manejo de leds      |
+ **
+ ** @addtogroup plataforma
+ ** @{ */
 
-#ifndef  __LEDS_H__
-#define __LEDS_H__
+/* === Inclusiones de archivos externos ======================================================== */
+
+
 
 #include <stdint.h>
+#include "errors.h"      // En codigo de produccion no van llamadas a mocks
+
+
+
+
+/* === Cabecera C++ ============================================================================ */
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/* === Definicion y Macros ===================================================================== */
+
+// MACROS DE CONFIGURACION DEL OFFSET
+#define OFFSET                  1
+#define LED_OFFSET(POS)     (POS -OFFSET)
+#define ALERT_MSG_INVALID_PARAM             "Parametro invalido"
 
 
 
@@ -25,7 +51,7 @@
  * @param port puntero a la memoria que mapea el puerto de leds
  * @return ** void 
  */
-void Leds_init(uint16_t* port);
+void Leds_init(uint16_t* port,registro_errores_t log_error);
 
 /**
  * @brief Encender un led
@@ -43,6 +69,26 @@ void Led_turn_on(int led_position);
  * @return ** void 
  */
 void Led_turn_off(int led_position);
+
+
+/**
+ * @brief Prendo mas de un led a la vez
+ * 
+ * @param mask  mascara de leds que quiero prender
+ * @return ** void 
+ */
+void Leds_turn_on(uint16_t mask);
+
+/* === Ciere de documentacion ================================================================== */
+#ifdef __cplusplus
+}
+#endif
+
+/** @} Final de la definición del modulo para doxygen */
+
+
+
+
 
 
 #endif

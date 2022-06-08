@@ -1,27 +1,38 @@
 #include "leds.h"
 
-
-#define CLR_BIT(p,n) ((p) &= ~((1) << (n)))
-#define SET_BIT(p,n) ((p) |= ((1) << (n)))
-
-
-uint16_t* port_address;
+#define CLR_BIT(p,n)                        ((p) &= ~((1) << (n)))
+#define SET_BIT(p,n)                        ((p) |= ((1) << (n)))
+#define LED_ALL_OFF                         (0x00)
 
 
-void Leds_init(uint16_t* port){
-    port_address = port;
-    *port_address = 0;
+uint16_t*          __port_address;
+registro_errores_t __log_error;
+
+void Leds_init(uint16_t* port, registro_errores_t log_error){
+    __port_address = port;
+    __log_error = log_error;
+
+    *__port_address = 0;
 }
 
 void    Led_turn_on(int led_position){
-    (*port_address) |= SET_BIT((*port_address),led_position);
+    if(led_position > 16 || led_position < 1){
+        __log_error(ALERTA,__FUNCTION__,__LINE__,ALERT_MSG_INVALID_PARAM);
+    }
+    else{
+        (*__port_address) |= SET_BIT((*__port_address),LED_OFFSET(led_position));
+
+    }
 };
 
 
 void Led_turn_off(int led_position){
-        (*port_address) |= CLR_BIT((*port_address),led_position);
-
-
+        (*__port_address) |= CLR_BIT((*__port_address),LED_OFFSET(led_position));
 }
 
+
+void Leds_turn_on(uint16_t mask){
+    (*__port_address) |= mask;
+
+}
  

@@ -4,23 +4,31 @@
   :file: test_leds.c
 :successes:
 - :test: test_LedsOffAfterCreate
-  :line: 22
+  :line: 44
   :message: ''
   :unity_test_time: 0
 - :test: test_TurnOnLed
-  :line: 31
+  :line: 52
   :message: ''
   :unity_test_time: 0
 - :test: test_TurnOffLed
-  :line: 40
+  :line: 59
+  :message: ''
+  :unity_test_time: 0
+- :test: test_TurnOnManyLeds
+  :line: 67
+  :message: ''
+  :unity_test_time: 0
+- :test: test_TurnOnLedOutRange
+  :line: 79
   :message: ''
   :unity_test_time: 0
 :failures: []
 :ignores: []
 :counts:
-  :total: 3
-  :passed: 3
+  :total: 5
+  :passed: 5
   :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.0010132350007552304
+:time: 0.000736763000531937
