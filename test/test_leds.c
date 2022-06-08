@@ -1,5 +1,5 @@
 
-/* Lista de elementos a probar:
+/* Lista de elementos a testear:
     Despues de inicializar, verificar que todos los leds estes apagados
     Se puede prender un LED individual.
     Se puede apagar un LED individual.
@@ -38,6 +38,7 @@ void  setUp(void){
 
 
 void tearDown(void){ 
+
    status == 0xFF;
 }
 
@@ -89,7 +90,7 @@ void test_TurnOnLedOutRange(void){
 
      Led_turn_on(17); 
      TEST_ASSERT_EQUAL_HEX16(ALERTA,status);   //Alerta tiene valor 1 y status que es nivel de alerta del sistema se 
-                                               //carga con valor Alerta cuando sucede error en funcion led
+                                                //carga con valor Alerta cuando sucede error en funcion led
 }
 
 
@@ -115,19 +116,16 @@ void test_CheckLedStatusOff(void){
 
 
 void test_TurnOnAllLeds(void){
-
+    
+    leds_port = LED_ALL_OFF;
     Led_turn_on_all();
     TEST_ASSERT_EQUAL_HEX16(LED_ALL_ON,leds_port);
-
 }
 
 void test_TurnOffAllLeds(void){
     
     leds_port = LED_ALL_ON;
     Led_turn_off_all();
-    
     TEST_ASSERT_EQUAL_HEX16(LED_ALL_OFF,leds_port);
-
-
 }
 
