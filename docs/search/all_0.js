@@ -1,0 +1,5 @@
+var searchData=
+[
+  ['alerta_0',['Alerta',['../group__plataforma.html#ga1ecc34d5224f7dda627dddcd0081b885',1,'errors.h']]],
+  ['alerta_1',['ALERTA',['../group__plataforma.html#ggade9795b4fd4fbdcdfe7fdf5f07465f67a666f9d1486d7da82425b442c43835d1f',1,'errors.h']]]
+];
