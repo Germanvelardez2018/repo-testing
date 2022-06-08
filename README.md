@@ -2,6 +2,6 @@
  ### Documentacion del proyecto.
  <lu>
     <li>
-             <a HREF="[https://germanvelardez2018.github.io/SIMO-STM32-framework/](https://germanvelardez2018.github.io/repo-testing/)">Documentacion</a>
+             <a HREF="https://germanvelardez2018.github.io/repo-testing/">Documentacion</a>
     </li> 
 </lu>
