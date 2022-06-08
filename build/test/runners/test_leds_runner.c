@@ -15,7 +15,10 @@ extern void test_TurnOnLed(void);
 extern void test_TurnOffLed(void);
 extern void test_TurnOnManyLeds(void);
 extern void test_TurnOnLedOutRange(void);
-extern void test_CheckLedOn(void);
+extern void test_CheckLedStatusOn(void);
+extern void test_CheckLedStatusOff(void);
+extern void test_TurnOnAllLeds(void);
+extern void test_TurnOffAllLeds(void);
 
 
 /*=======Mock Management=====*/
@@ -80,12 +83,15 @@ static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE l
 int main(void)
 {
   UnityBegin("test_leds.c");
-  run_test(test_LedsOffAfterCreate, "test_LedsOffAfterCreate", 44);
-  run_test(test_TurnOnLed, "test_TurnOnLed", 52);
-  run_test(test_TurnOffLed, "test_TurnOffLed", 59);
-  run_test(test_TurnOnManyLeds, "test_TurnOnManyLeds", 67);
-  run_test(test_TurnOnLedOutRange, "test_TurnOnLedOutRange", 80);
-  run_test(test_CheckLedOn, "test_CheckLedOn", 91);
+  run_test(test_LedsOffAfterCreate, "test_LedsOffAfterCreate", 47);
+  run_test(test_TurnOnLed, "test_TurnOnLed", 56);
+  run_test(test_TurnOffLed, "test_TurnOffLed", 64);
+  run_test(test_TurnOnManyLeds, "test_TurnOnManyLeds", 73);
+  run_test(test_TurnOnLedOutRange, "test_TurnOnLedOutRange", 85);
+  run_test(test_CheckLedStatusOn, "test_CheckLedStatusOn", 97);
+  run_test(test_CheckLedStatusOff, "test_CheckLedStatusOff", 107);
+  run_test(test_TurnOnAllLeds, "test_TurnOnAllLeds", 117);
+  run_test(test_TurnOffAllLeds, "test_TurnOffAllLeds", 124);
 
   return UnityEnd();
 }

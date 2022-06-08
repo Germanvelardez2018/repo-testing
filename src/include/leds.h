@@ -44,7 +44,8 @@ extern "C" {
 #define ALERT_MSG_INVALID_PARAM             "Parametro invalido"
 #define LED_ON                          1
 #define LED_OFF                         0
-
+#define LED_ALL_OFF                         (0x00)
+#define LED_ALL_ON                          (0xFFFF)
 
 /**
  * @brief Inicia un puerto con 16 leds
@@ -82,12 +83,28 @@ void Leds_turn_on(uint16_t mask);
 
 
 /**
- * @brief Checkeo si el led indicado esta prendido. Retorno 1 Si es Verdadero y 0 si es Falso.
+ * @brief Checkeo el estado del led. 
  * 
  * @param led_position 
  * @return ** int 
  */
-int Led_check_on(int led_position);
+int Led_check_state(int led_position);
+
+
+/**
+ * @brief Prendo todos los leds al mismo tiempo
+ * 
+ * @return ** void 
+ */
+void Led_turn_on_all(void);
+
+
+/**
+ * @brief Apago todos los led al mismo tiempo
+ * 
+ * @return ** void 
+ */
+void Led_turn_off_all(void );
 
 
 

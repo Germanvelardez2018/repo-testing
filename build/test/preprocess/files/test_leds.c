@@ -14,6 +14,10 @@ static gravedad_t status;
 
 
 
+
+
+
+
 void log_errors(gravedad_t gravedad, const char * funcion, int linea, const char * mensaje, ...){
 
 
@@ -46,6 +50,10 @@ void tearDown(void){
 
 
 
+
+
+
+
 void test_LedsOffAfterCreate(void){
 
 
@@ -58,9 +66,11 @@ void test_LedsOffAfterCreate(void){
 
    ((void *)0)
 
-   ), (UNITY_UINT)(48), UNITY_DISPLAY_STYLE_HEX16);
+   ), (UNITY_UINT)(51), UNITY_DISPLAY_STYLE_HEX16);
 
 }
+
+
 
 
 
@@ -76,9 +86,11 @@ void test_TurnOnLed(void){
 
    ((void *)0)
 
-   ), (UNITY_UINT)(55), UNITY_DISPLAY_STYLE_HEX16);
+   ), (UNITY_UINT)(59), UNITY_DISPLAY_STYLE_HEX16);
 
 }
+
+
 
 
 
@@ -96,9 +108,11 @@ void test_TurnOffLed(void){
 
    ((void *)0)
 
-   ), (UNITY_UINT)(63), UNITY_DISPLAY_STYLE_HEX16);
+   ), (UNITY_UINT)(68), UNITY_DISPLAY_STYLE_HEX16);
 
 }
+
+
 
 
 
@@ -116,19 +130,17 @@ void test_TurnOnManyLeds(void){
 
     Led_turn_on(11);
 
-
-
-    void Leds_turn_on(uint16_t mask);
-
-
-
     UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)(((1<<(5 -1))|(1<<(11 -1)))), (UNITY_INT)(UNITY_INT16)((leds_port)), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(76), UNITY_DISPLAY_STYLE_HEX16);
+   ), (UNITY_UINT)(79), UNITY_DISPLAY_STYLE_HEX16);
 
 }
+
+
+
+
 
 
 
@@ -150,7 +162,7 @@ void test_TurnOnLedOutRange(void){
 
     ((void *)0)
 
-    ), (UNITY_UINT)(86), UNITY_DISPLAY_STYLE_HEX16);
+    ), (UNITY_UINT)(91), UNITY_DISPLAY_STYLE_HEX16);
 
 
 
@@ -160,18 +172,92 @@ void test_TurnOnLedOutRange(void){
 
 
 
-void test_CheckLedOn(void){
+
+
+void test_CheckLedStatusOn(void){
+
+
 
     Led_turn_on(5);
 
-    int check = 0;
+    int state = 0;
 
-    check = Led_check_on(5);
+    state = Led_check_state(5);
 
-    UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((check)), (
+    UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((state)), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(95), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(102), UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+
+
+
+
+void test_CheckLedStatusOff(void){
+
+
+
+    Led_turn_on(9);
+
+    Led_turn_off(9);
+
+    int state = 1;
+
+    state = Led_check_state(9);
+
+    UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((state)), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(113), UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+
+
+void test_TurnOnAllLeds(void){
+
+
+
+    Led_turn_on_all();
+
+    UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)(((0xFFFF))), (UNITY_INT)(UNITY_INT16)((leds_port)), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(120), UNITY_DISPLAY_STYLE_HEX16);
+
+
+
+}
+
+
+
+void test_TurnOffAllLeds(void){
+
+
+
+    leds_port = (0xFFFF);
+
+    Led_turn_off_all();
+
+
+
+    UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)(((0x00))), (UNITY_INT)(UNITY_INT16)((leds_port)), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(129), UNITY_DISPLAY_STYLE_HEX16);
+
+
+
+
 
 }
