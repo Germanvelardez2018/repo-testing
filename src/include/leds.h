@@ -38,6 +38,14 @@ extern "C" {
 
 /* === Definicion y Macros ===================================================================== */
 
+
+// MACROS DE MANEJO DE BITS
+#define BIT(x)                               (1<<(x))
+#define BIT_GET(x,b)                        ((x) & BIT(b))
+#define CLR_BIT(p,n)                        ((p) &= ~(BIT(n)))
+#define SET_BIT(p,n)                        ((p) |= (BIT(n)))
+
+
 // MACROS DE CONFIGURACION DEL OFFSET
 #define OFFSET                  1
 #define LED_OFFSET(POS)     (POS -OFFSET)

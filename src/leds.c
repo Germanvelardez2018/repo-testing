@@ -1,16 +1,6 @@
 #include "leds.h"
 
 
-
-
-#define BIT(x)                               (1<<(x))
-#define BIT_GET(x,b)                        ((x) & BIT(b))
-#define CLR_BIT(p,n)                        ((p) &= ~(BIT(n)))
-#define SET_BIT(p,n)                        ((p) |= (BIT(n)))
-#define LED_ALL_OFF                         (0x00)
-#define LED_ALL_ON                          (0xFFFF)
-
-
 uint16_t*          __port_address;
 registro_errores_t __log_error;
 
