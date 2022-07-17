@@ -39,21 +39,17 @@ extern "C" {
 /* === Definicion y Macros ===================================================================== */
 
 
-// MACROS DE MANEJO DE BITS
-#define BIT(x)                               (1<<(x))
-#define BIT_GET(x,b)                        ((x) & BIT(b))
-#define CLR_BIT(p,n)                        ((p) &= ~(BIT(n)))
-#define SET_BIT(p,n)                        ((p) |= (BIT(n)))
 
 
-// MACROS DE CONFIGURACION DEL OFFSET
-#define OFFSET                  1
-#define LED_OFFSET(POS)     (POS -OFFSET)
-#define ALERT_MSG_INVALID_PARAM             "Parametro invalido"
-#define LED_ON                          1
-#define LED_OFF                         0
-#define LED_ALL_OFF                         (0x00)
-#define LED_ALL_ON                          (0xFFFF)
+
+
+
+
+
+
+
+
+
 
 /**
  * @brief Inicia un puerto con 16 leds
@@ -79,15 +75,6 @@ void Led_turn_on(int led_position);
  * @return ** void 
  */
 void Led_turn_off(int led_position);
-
-
-/**
- * @brief Prendo mas de un led a la vez
- * 
- * @param mask  mascara de leds que quiero prender
- * @return ** void 
- */
-void Leds_turn_on(uint16_t mask);
 
 
 /**

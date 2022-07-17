@@ -54,12 +54,6 @@ void Led_turn_off(int led_position){
 }
 
 
-void Leds_turn_on(uint16_t mask){
-
-    (*port_address) |= mask;
-}
-
-
 int Led_check_state(int led_position){
 
     return  (BIT_GET((*port_address),LED_OFFSET(led_position)))?LED_ON:LED_OFF;
