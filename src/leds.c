@@ -30,7 +30,7 @@
 #define CHECK_ERROR                         (0)
 
 
-
+// VARIABLES GLOBALES
 uint16_t*          port_address;
 registro_errores_t log_error;
 
@@ -48,10 +48,7 @@ static int Param_check(int index){
 }
 
 
-
-
 void Leds_init(uint16_t* port, registro_errores_t reg_error){
-    
     port_address = port;
     log_error = reg_error;
     Led_turn_off_all(); 
@@ -59,19 +56,16 @@ void Leds_init(uint16_t* port, registro_errores_t reg_error){
 
 
 void Led_turn_on(int led_position){
-
     if(Param_check(led_position))    (*port_address) |= SET_BIT((*port_address),LED_OFFSET(led_position));    
 }
 
 
 void Led_turn_off(int led_position){
-
     if(Param_check(led_position)) (*port_address) |= CLR_BIT((*port_address),LED_OFFSET(led_position));
 }
 
 
 int Led_check_state(int led_position){
-    
     int ret = LED_OFF;
      if(Param_check(led_position)) 
      {
@@ -82,12 +76,10 @@ int Led_check_state(int led_position){
 
 
 void Led_turn_on_all(void ){
-
     (*port_address) |= LED_ALL_ON;
 }
 
 
 void Led_turn_off_all(void ){
-
     (*port_address) &= LED_ALL_OFF;
 }

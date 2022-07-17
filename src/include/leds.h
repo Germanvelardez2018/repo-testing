@@ -40,17 +40,6 @@ extern "C" {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 /**
  * @brief Inicia un puerto con 16 leds
  * 
